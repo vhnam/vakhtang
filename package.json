@@ -1,0 +1,22 @@
+{
+  "name": "vakhtang",
+  "version": "1.0.0",
+  "description": "Design system for Nam Vo's blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vhnam/vakhtang.git"
+  },
+  "author": "Nam Vo <vhnam2504@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vhnam/vakhtang/issues"
+  },
+  "homepage": "https://github.com/vhnam/vakhtang#readme",
+  "devDependencies": {
+    "laravel-mix": "^2.1.14"
+  }
+}
