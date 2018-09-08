@@ -1,0 +1,51 @@
+@import 'colors/palettes';
+@import 'colors/schema';
+@import 'colors/colors';
+
+@function color($color,$tone){
+
+    @warn map-get($palettes,$color);
+
+    @if map-has-key($palettes, $color){
+        $color: map-get($palettes, $color);
+
+            @if map-has-key($color, $tone){
+                $tone: map-get($color, $tone);
+                @return $tone;
+            }
+
+            @warn "unknown tone `#{$tone}` in color";
+            @return null;        
+    }
+
+    @warn "unknown color `#{$color}` in palette";
+    @return null;
+   
+}
+
+@for $i from 1 to length($colors) + 1 {
+    $color: nth($colors, $i);
+
+    @for $j from 1 to length($schemas) + 1 {
+        $schema: nth($schemas, $j);
+
+        @if 'base' == $schema {
+            .text-#{$color} {
+                color: color($color, $schema)
+            }
+
+            .bg-#{$color} {
+                background-color: color($color, $schema)
+            }
+        } @else {
+            .text-#{$color}--#{$schema} {
+                color: color($color, $schema)
+            }
+
+            .bg-#{$color}--#{$schema} {
+                background-color: color($color, $schema)
+            }
+        }
+        
+    }
+}
